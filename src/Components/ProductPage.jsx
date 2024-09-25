@@ -21,7 +21,7 @@ function ProductPage() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/product/allproducts`);
+        const response = await axios.get(`https://ecommerce-page-backend.onrender.com/product/allproducts`);
         setProducts(response.data.product);
         setFilteredProducts(response.data.product);
 
