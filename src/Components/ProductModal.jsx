@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 
 const ProductModal = ({ show, handleClose, product }) => {
   return (
-    <Modal show={show} onHide={handleClose} centered backdrop="static">
+    <Modal className="modal-size" show={show} onHide={handleClose} centered backdrop="static">
       <Modal.Header closeButton>
         <Modal.Title>{product.name}</Modal.Title>
       </Modal.Header>

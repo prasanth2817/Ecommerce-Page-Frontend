@@ -6,14 +6,14 @@ import  {useNavigate} from 'react-router-dom';
 import AxiosService from '../Common/ApiServices';
 import {toast} from 'react-toastify'
 import { Link } from 'react-router-dom';
-// import { useAuth } from '../Context/AuthContext';
+import { useAuth } from '../Context/AuthContext';
 import Spinner from "react-bootstrap/Spinner";
 
 function Login() {
     let [email,setEmail]=useState("")
     let [password,setPassword]=useState("")
     const [loading, setLoading] = useState(false);
-    // const { setIsLoggedIn } = useAuth();
+    const { setIsLoggedIn } = useAuth();
     const navigate= useNavigate();
 
 const validateLogin=async(e)=>{
@@ -36,11 +36,11 @@ try {
 
     if (loading) {
       return (
-        <div className='spinner-design'>
+        <div className='spinner-design flex items-center justify-center min-h-screen'>
           <h4>Validating user credentials!
              Please wait...</h4>
           <Spinner animation="border" role="status">
-            <span className="visually-hidden">Loading...</span>
+            {/* <span className="visually-hidden">Loading...</span> */}
           </Spinner>
         </div>
       );
@@ -62,8 +62,8 @@ try {
         <Form.Control className='textbox' type="password" placeholder="Password"  onChange={(e)=>setPassword(e.target.value)} />
       </Form.Group>
       <div className='newUser-text'>
-      <div>NewUser  <Link to="/signUp">Click here</Link></div>&nbsp;
-      <div>To reset password <Link to="/forgot-password">Forgot Password</Link></div>
+      <div><span className='font-sans font-normal px-2 text-xl'>NewUser</span>  <Link to="/signUp"><span className='font-serif text-cyan-800'>Click here</span></Link></div>&nbsp;
+      <div> <span className='font-sans font-normal px-2 text-xl'>To reset password</span> <Link to="/forgot-password"><span className='font-serif text-cyan-800'>Forgot Password</span></Link></div>
       </div>
       <br />
       <Button variant="dark" type="submit" onClick={(e)=>validateLogin(e)}>
@@ -72,7 +72,7 @@ try {
     </Form>    
         </Card.Body>
       </Card>
-      <div>
+      <div className='font-sans font-semibold text-xl'>
         <h4>For admin login</h4>
         <h6>Email: admin123@gmail.com</h6>
         <h6>password: admin@123</h6>

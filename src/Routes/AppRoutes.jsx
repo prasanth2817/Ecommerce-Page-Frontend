@@ -13,10 +13,10 @@ function AppRoutes() {
     <Header /> 
     <Routes>
       <Route path="/productpage" element={<ProductPage />} /> 
-      {/* <Route path="/login" element={<Login />} /> 
+      <Route path="/login" element={<Login />} /> 
       <Route path="/signUp" element={<SignUp />} /> 
       <Route path="/forgot-password" element={<ForgotPassword />} />
-      <Route path="/reset-password/:token" element={<ResetPassword />} />  */}
+      <Route path="/reset-password/:token" element={<ResetPassword />} />
       <Route path="/" element={<ProductPage />} /> 
     </Routes>
     <Footer />

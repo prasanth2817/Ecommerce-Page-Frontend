@@ -7,14 +7,18 @@ import { Card } from 'react-bootstrap';
 
 function ForgotPassword() {
 
-    let[email,setEmail]=useState(" ")
+    let[email,setEmail]=useState(" ");
+
     const validateEmail=async(e)=>{
       e.preventDefault()
         try {
-            let res= await AxiosService.post("/user/forgot-password",{email})
+            let res= await AxiosService.post("/user/forget-password",{email})
+            console.log(res);
             if(res.status===200){
               toast.success(res.data.message)
-            }
+            }else
+            toast.error(error.response.data.message)
+            console.error(res.data.message);            
         } catch (error) {
           if (error.response.status === 401) {
             // Token expired, display notification to the user
@@ -27,7 +31,7 @@ function ForgotPassword() {
         }
     }
   return <>
-  <div className='container card-style-align'>
+  <div className='container card-style-align mt-12'>
    <Card className='card-style' border="dark">
         <Card.Header>ForgotPassword</Card.Header>
         <Card.Body>

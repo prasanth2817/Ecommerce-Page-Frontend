@@ -21,7 +21,7 @@ function ProductPage() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get(`https://ecommerce-page-backend.onrender.com/product/allproducts`);
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/product/allproducts`);
         setProducts(response.data.product);
         setFilteredProducts(response.data.product);
 
@@ -160,7 +160,7 @@ function ProductPage() {
               filteredProducts.map((product) => (
                 <div
                   key={product._id}
-                  className="bg-white shadow-lg rounded-lg overflow-hidden card-contents transition-transform duration-200 hover:scale-105 hover:shadow-lg" style={{ width: "100%" }}
+                  className="bg-white p-4 shadow-lg rounded-lg overflow-hidden card-contents transition-transform duration-200 hover:scale-105 hover:shadow-lg" style={{ width: "100%" }}
                 >
                   <img
                     className="h-48 w-full object-contain"
@@ -172,11 +172,11 @@ function ProductPage() {
                     alt={product.name}
                     onClick={() => handleShowModal(product)} 
                   />
-                  <div className="p-2">
+                  <div className="p-2 w-auto">
                     <h3 className="font-bold text-lg mb-2">{product.brand}</h3>
                     <p className="text-gray-700">{product.title}</p>
-                    <p className="text-gray-900 font-bold">Rs. {product.price}</p>
-                    <Button variant="primary" onClick={() => handleShowModal(product)}>View Details</Button>
+                    <p className="text-gray-900 font-bold pt-4">Rs. {product.price}</p>
+                    <Button variant="primary" className="p-1" onClick={() => handleShowModal(product)}>View Details</Button>
                   </div>
                 </div>
               ))
