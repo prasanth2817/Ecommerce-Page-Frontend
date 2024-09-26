@@ -112,9 +112,9 @@ ul li {
   font-size: 18px;
   font-weight: 400;
 }
-/* .modal-size{
-  margin-left: 3rem!important;
-} */
+.modal-size{
+  padding-left: 1.5rem!important;
+}
 .modal-dialog{
   max-width: 90%!important;
 }
